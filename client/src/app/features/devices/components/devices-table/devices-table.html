@@ -1,0 +1,61 @@
+<dx-data-grid
+  class="devices-grid"
+  [dataSource]="dataSource"
+  [remoteOperations]="{ paging: true, sorting: true }"
+  [showBorders]="true"
+  [showRowLines]="true"
+  [rowAlternationEnabled]="true"
+  [hoverStateEnabled]="true"
+  [columnAutoWidth]="true"
+  [errorRowEnabled]="false"
+  noDataText="В базе пока нет техники"
+  (onRowDblClick)="onRowDblClick($event)"
+>
+  <dxo-data-grid-sorting mode="single" />
+  <dxo-data-grid-paging [pageSize]="defaultPageSize" />
+  <dxo-data-grid-pager
+    [visible]="true"
+    [allowedPageSizes]="pageSizes"
+    [showPageSizeSelector]="true"
+    [showInfo]="true"
+    [showNavigationButtons]="true"
+  />
+
+  <dxo-data-grid-toolbar>
+    <dxi-data-grid-data-grid-toolbar-item location="before">
+      <div *dxTemplate class="devices-count">Записей: {{ totalCount() }} из {{ maxCount }}</div>
+    </dxi-data-grid-data-grid-toolbar-item>
+    <dxi-data-grid-data-grid-toolbar-item
+      location="after"
+      widget="dxButton"
+      [options]="addButtonOptions()"
+    />
+  </dxo-data-grid-toolbar>
+
+  <dxi-data-grid-column
+    dataField="inventoryNumber"
+    caption="Учетный номер"
+    sortOrder="asc"
+    [width]="220"
+  />
+  <dxi-data-grid-column dataField="typeName" caption="Тип техники" [width]="240" />
+  <dxi-data-grid-column dataField="name" caption="Наименование" />
+  <dxi-data-grid-column
+    dataField="room"
+    caption="Комната размещения"
+    dataType="number"
+    alignment="left"
+    [width]="200"
+  />
+
+  <dxi-data-grid-column type="buttons" [width]="100">
+    <dxi-data-grid-column-button icon="edit" hint="Редактировать" [onClick]="onEditClick" />
+    <dxi-data-grid-column-button icon="trash" hint="Удалить" [onClick]="onDeleteClick" />
+  </dxi-data-grid-column>
+</dx-data-grid>
+
+<app-device-dialog
+  [(visible)]="isDialogVisible"
+  [device]="editedDevice()"
+  (saved)="onDeviceSaved()"
+/>

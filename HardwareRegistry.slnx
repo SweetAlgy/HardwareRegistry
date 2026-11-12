@@ -1,0 +1,19 @@
+<Solution>
+  <Folder Name="/aspire/">
+    <Project Path="aspire/src/HardwareRegistry.Aspire.AppHost/HardwareRegistry.Aspire.AppHost.csproj" />
+  </Folder>
+  <Folder Name="/backend/">
+    <Project Path="backend/src/HardwareRegistry.Api/HardwareRegistry.Api.csproj" />
+    <Project Path="backend/src/HardwareRegistry.Application/HardwareRegistry.Application.csproj" />
+    <Project Path="backend/src/HardwareRegistry.Domain/HardwareRegistry.Domain.csproj" />
+    <Project Path="backend/src/HardwareRegistry.Infrastructure/HardwareRegistry.Infrastructure.csproj" />
+    <Project Path="backend/src/HardwareRegistry.DatabaseMigrator/HardwareRegistry.DatabaseMigrator.csproj" />
+    <Project Path="backend/src/HardwareRegistry.ServiceDefaults/HardwareRegistry.ServiceDefaults.csproj" />
+  </Folder>
+  <Folder Name="/backend/tests/">
+    <Project Path="backend/tests/HardwareRegistry.Api.UnitTests/HardwareRegistry.Api.UnitTests.csproj" />
+    <Project Path="backend/tests/HardwareRegistry.Application.UnitTests/HardwareRegistry.Application.UnitTests.csproj" />
+    <Project Path="backend/tests/HardwareRegistry.Domain.UnitTests/HardwareRegistry.Domain.UnitTests.csproj" />
+    <Project Path="backend/tests/HardwareRegistry.IntegrationTests/HardwareRegistry.IntegrationTests.csproj" />
+  </Folder>
+</Solution>

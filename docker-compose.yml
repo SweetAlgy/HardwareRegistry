@@ -1,0 +1,15 @@
+# PostgreSQL для запуска без Aspire. Параметры совпадают со строкой подключения по умолчанию.
+services:
+  postgres:
+    image: postgres:17
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: hardwareregistry
+    ports:
+      - "5432:5432"
+    volumes:
+      - hardwareregistry-postgres-data:/var/lib/postgresql/data
+
+volumes:
+  hardwareregistry-postgres-data:

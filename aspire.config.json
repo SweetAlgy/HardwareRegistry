@@ -1,0 +1,5 @@
+{
+  "appHost": {
+    "path": "aspire/src/HardwareRegistry.Aspire.AppHost/HardwareRegistry.Aspire.AppHost.csproj"
+  }
+}

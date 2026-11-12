@@ -1,0 +1,18 @@
+<Project Sdk="Aspire.AppHost.Sdk/13.4.6">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <UserSecretsId>HardwareRegistry-AppHost-53bbe06b-49b9-4fd0-b17f-ecdb7b3df7aa</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Aspire.Hosting.JavaScript" />
+    <PackageReference Include="Aspire.Hosting.PostgreSQL" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\backend\src\HardwareRegistry.Api\HardwareRegistry.Api.csproj" />
+    <ProjectReference Include="..\..\..\backend\src\HardwareRegistry.DatabaseMigrator\HardwareRegistry.DatabaseMigrator.csproj" />
+  </ItemGroup>
+
+</Project>

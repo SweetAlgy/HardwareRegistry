@@ -1,0 +1,91 @@
+<dx-popup
+  [visible]="visible()"
+  (visibleChange)="visible.set($event)"
+  [title]="title()"
+  [width]="480"
+  height="auto"
+  [showCloseButton]="true"
+  [hideOnOutsideClick]="false"
+  (onShowing)="onShowing()"
+  (onShown)="onShown()"
+>
+  <div *dxTemplate="let data of 'content'">
+    <dx-form
+      [formData]="formData()"
+      labelLocation="top"
+      [showColonAfterLabel]="false"
+      (onEditorEnterKey)="save()"
+    >
+      <dxi-form-simple-item
+        dataField="inventoryNumber"
+        editorType="dxTextBox"
+        [editorOptions]="inventoryNumberEditorOptions"
+      >
+        <dxo-form-label text="Учетный номер" />
+        <dxi-form-required-rule message="Укажите учетный номер" />
+        <dxi-form-pattern-rule
+          [pattern]="constraints.inventoryNumberPattern"
+          message="Только цифры и латинские буквы"
+        />
+        <dxi-form-string-length-rule
+          [max]="constraints.inventoryNumberMaxLength"
+          message="Не длиннее {{ constraints.inventoryNumberMaxLength }} символов"
+        />
+        <dxi-form-custom-rule
+          [validationCallback]="isInventoryNumberFree"
+          [reevaluate]="true"
+          message="Техника с таким учетным номером уже существует"
+        />
+      </dxi-form-simple-item>
+
+      <dxi-form-simple-item
+        dataField="name"
+        editorType="dxTextBox"
+        [editorOptions]="nameEditorOptions"
+      >
+        <dxo-form-label text="Наименование" />
+        <dxi-form-required-rule message="Укажите наименование" />
+        <dxi-form-string-length-rule
+          [max]="constraints.nameMaxLength"
+          message="Не длиннее {{ constraints.nameMaxLength }} символов"
+        />
+      </dxi-form-simple-item>
+
+      <dxi-form-simple-item
+        dataField="typeId"
+        editorType="dxSelectBox"
+        [editorOptions]="typeEditorOptions()"
+      >
+        <dxo-form-label text="Тип техники" />
+        <dxi-form-required-rule message="Выберите тип техники" />
+      </dxi-form-simple-item>
+
+      <dxi-form-simple-item
+        dataField="room"
+        editorType="dxNumberBox"
+        [editorOptions]="roomEditorOptions"
+      >
+        <dxo-form-label text="Комната размещения" />
+        <dxi-form-required-rule message="Укажите комнату" />
+        <dxi-form-range-rule
+          [min]="constraints.roomMin"
+          [max]="constraints.roomMax"
+          message="Целое число от {{ constraints.roomMin }} до {{ constraints.roomMax }}"
+        />
+      </dxi-form-simple-item>
+    </dx-form>
+  </div>
+
+  <dxi-popup-toolbar-item
+    widget="dxButton"
+    toolbar="bottom"
+    location="after"
+    [options]="saveButtonOptions()"
+  />
+  <dxi-popup-toolbar-item
+    widget="dxButton"
+    toolbar="bottom"
+    location="after"
+    [options]="cancelButtonOptions"
+  />
+</dx-popup>

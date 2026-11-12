@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="oqo0.SwaggerThemes" />
+    <PackageReference Include="Swashbuckle.AspNetCore" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Annotations" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\HardwareRegistry.Application\HardwareRegistry.Application.csproj" />
+    <ProjectReference Include="..\HardwareRegistry.Infrastructure\HardwareRegistry.Infrastructure.csproj" />
+    <ProjectReference Include="..\HardwareRegistry.ServiceDefaults\HardwareRegistry.ServiceDefaults.csproj" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <NoWarn>$(NoWarn);1591</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="HardwareRegistry.Api.UnitTests" />
+    <InternalsVisibleTo Include="HardwareRegistry.IntegrationTests" />
+  </ItemGroup>
+
+</Project>

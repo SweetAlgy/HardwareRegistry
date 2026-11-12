@@ -1,0 +1,11 @@
+<Project>
+
+  <!-- Shared build settings for every project in the repository.
+       Imported before each project file, so a project can still override any of these. -->
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+</Project>

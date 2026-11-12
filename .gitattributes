@@ -1,0 +1,26 @@
+# Normalise line endings in the repository; the working tree keeps the platform default.
+* text=auto
+
+*.cs      text diff=csharp
+*.csproj  text
+*.props   text
+*.targets text
+*.slnx    text
+*.json    text
+*.md      text
+*.sql     text
+*.js      text
+*.ts      text
+*.html    text
+*.scss    text
+*.yml     text
+*.yaml    text
+
+*.png   binary
+*.jpg   binary
+*.jpeg  binary
+*.gif   binary
+*.ico   binary
+*.woff  binary
+*.woff2 binary
+*.pfx   binary
